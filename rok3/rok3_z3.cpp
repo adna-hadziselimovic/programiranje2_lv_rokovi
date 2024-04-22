@@ -9,7 +9,10 @@ int faktorijel(int n){
 
 double Kosinus(double x, int n){
     double cosx(0);
-    cosx+=((pow(-1,n))/(faktorijel(2*n)))*pow((double)x,2*n);
+    while(n>0){
+        cosx+=((pow(-1,n))/(faktorijel(2*n)))*pow((double)x,2*n);
+        n--;
+    }
     return cosx;
 }
 
@@ -20,7 +23,6 @@ int main(){
     cin>>x;
     while(Kosinus(x,n)-cos(x)>eps){
         n++;
-        cout<<Kosinus(x,n)<<cos(x)<<endl;
     }
     cout<<n;
 }
